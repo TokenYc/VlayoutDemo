@@ -14,7 +14,10 @@ import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.VirtualLayoutAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.alibaba.android.vlayout.layout.DefaultLayoutHelper;
+import com.alibaba.android.vlayout.layout.FixLayoutHelper;
 import com.alibaba.android.vlayout.layout.GridLayoutHelper;
+import com.alibaba.android.vlayout.layout.ScrollFixLayoutHelper;
+import com.alibaba.android.vlayout.layout.StickyLayoutHelper;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -48,7 +51,11 @@ public class MainActivity extends AppCompatActivity {
         final GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(4);
         gridLayoutHelper.setItemCount(18);
 
+        final StickyLayoutHelper stickyLayoutHelper = new StickyLayoutHelper();
+        stickyLayoutHelper.setItemCount(1);
+
         layoutHelpers.add(DefaultLayoutHelper.newHelper(4));
+        layoutHelpers.add(stickyLayoutHelper);
         layoutHelpers.add(gridLayoutHelper);
 
         //将所有的LayoutHelper设置进实质的布局LayoutManager
@@ -66,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
                 VirtualLayoutManager.LayoutParams layoutParams = new VirtualLayoutManager.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT, 200);
                 holder.itemView.setLayoutParams(layoutParams);
+
+                if (position==4){
+                    layoutParams.width=250;
+                    layoutParams.height=250;
+                }
 
                 ((TextView)holder.itemView).setText(Integer.toString(position));
                 ((TextView)holder.itemView).setGravity(Gravity.CENTER);
