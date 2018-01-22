@@ -21,4 +21,11 @@
         android:text="多种布局样式"
         android:onClick="jumpMultiLayou"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="模拟卡片式布局"
+        android:onClick="jumpQF"
+        />
 </LinearLayout>

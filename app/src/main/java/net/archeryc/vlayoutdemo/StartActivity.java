@@ -13,11 +13,15 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
     }
 
-    public void jumpMain(View view){
-        startActivity(new Intent(this,MainActivity.class));
+    public void jumpMain(View view) {
+        startActivity(new Intent(this, MainActivity.class));
     }
 
-    public void jumpMultiLayou(View view){
-        startActivity(new Intent(this,MultiLayoutActivity.class));
+    public void jumpMultiLayou(View view) {
+        startActivity(new Intent(this, MultiLayoutActivity.class));
+    }
+
+    public void jumpQF(View view) {
+        startActivity(new Intent(this, QfLayoutActivity.class));
     }
 }
